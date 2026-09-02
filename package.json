@@ -1,0 +1,25 @@
+{
+  "name": "sms-reminder-agent",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx trigger.dev@latest dev",
+    "deploy": "npx trigger.dev@latest deploy",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@trigger.dev/sdk": "^4.5.15",
+    "google-auth-library": "^11.0.2",
+    "openai": "^7.9.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.1",
+    "trigger.dev": "^4.5.15",
+    "typescript": "^5.9.3"
+  }
+}
