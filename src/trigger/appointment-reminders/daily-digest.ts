@@ -11,6 +11,11 @@ export const dailyDigest = schedules.task({
     pattern: "0 7 * * *",
     // Without this the schedule runs in UTC and would fire at 10:00 Kampala time.
     timezone: "Africa/Kampala",
+    // Production only. The default is every environment, which would make this
+    // fire on its own whenever a local `trigger.dev dev` server happens to be
+    // running — sending real SMS from a developer's laptop. Test runs should be
+    // triggered deliberately, never by a cron nobody was watching.
+    environments: ["PRODUCTION"],
   },
   run: async () => {
     return await runReminders("digest");

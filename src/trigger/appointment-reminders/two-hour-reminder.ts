@@ -10,6 +10,9 @@ export const twoHourReminder = schedules.task({
   cron: {
     pattern: "0 * * * *",
     timezone: "Africa/Kampala",
+    // Production only — see the note in daily-digest.ts. This one is hourly, so
+    // a dev server left running would fire it 24 times a day.
+    environments: ["PRODUCTION"],
   },
   run: async () => {
     return await runReminders("two-hour");
